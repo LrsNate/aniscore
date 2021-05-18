@@ -1,4 +1,4 @@
-import { getScores } from "../data/scores";
+import { getScores } from "data";
 import Link from "next/Link";
 
 export default function GetScores() {
