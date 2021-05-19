@@ -1,25 +1,31 @@
 import { ReactNode } from "react";
 import Head from "next/head";
+import NavigationBar from "./NavigationBar";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  pageContent: {
+    marginTop: theme.spacing(2),
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
+}));
 
 interface PageLayoutProps {
+  title?: string;
   children: ReactNode;
 }
 
 export default function PageLayout(props: PageLayoutProps) {
+  const classes = useStyles();
+  const title = props.title ?? "Aniscore";
   return (
     <>
       <Head>
-        <title>Aniscore</title>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
+        <title>{title}</title>
       </Head>
-      {props.children}
+      <NavigationBar title={title} />
+      <div className={classes.pageContent}>{props.children}</div>
     </>
   );
 }

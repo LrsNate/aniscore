@@ -6,9 +6,9 @@ export default function GetScores() {
   return (
     <div>
       {scores.map((score) => (
-        <p key={score.id}>
+        <div key={score.id}>
           <Link href={`/score/${score.id}/${score.slug}`}>{score.title}</Link>
-        </p>
+        </div>
       ))}
     </div>
   );

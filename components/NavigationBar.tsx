@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Button,
   IconButton,
   makeStyles,
   Toolbar,
@@ -20,7 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavigationBar() {
+interface NavigationBarProps {
+  title: string;
+}
+
+export default function NavigationBar(props: NavigationBarProps) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -35,9 +38,8 @@ export default function NavigationBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            {props.title}
           </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>

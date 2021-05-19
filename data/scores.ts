@@ -3,7 +3,7 @@ export interface Score {
   slug: string;
   title: string;
   pdfUrl: string;
-  youtubeSource: string;
+  youtubeUrl: string;
 }
 
 const scores: Score[] = [
@@ -12,7 +12,7 @@ const scores: Score[] = [
     title: "Mizore and Ririka's oboe étude",
     slug: "mizore-ririka-oboe-etude",
     pdfUrl: "/Mizore_Ririka_practice_en.pdf",
-    youtubeSource: "https://www.youtube.com/watch?v=Z0qGdqCbmNI",
+    youtubeUrl: "https://www.youtube.com/embed/Z0qGdqCbmNI",
   },
 ];
 
