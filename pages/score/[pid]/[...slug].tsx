@@ -1,7 +1,3 @@
-import { getScore, Score } from "data";
-import ReactPlayer from "react-player";
-import { GetServerSideProps } from "next";
-import Head from "next/head";
 import {
   Breadcrumbs,
   Card,
@@ -9,10 +5,13 @@ import {
   Grid,
   Link,
   makeStyles,
-  Paper,
   Typography,
 } from "@material-ui/core";
 import PageLayout from "components/PageLayout";
+import YoutubePlayer from "components/YoutubePlayer";
+import { getScore, Score } from "data/score";
+import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 interface GetScoreProps {
@@ -27,17 +26,6 @@ const useStyles = makeStyles((theme) => ({
   scoreEmbed: {
     width: "100%",
     minHeight: 500,
-  },
-  youtubeWrapper: {
-    position: "relative",
-    paddingBottom: "56.25%",
-  },
-  youtubeEmbed: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
   },
 }));
 
@@ -64,23 +52,14 @@ export default function GetScorePage(props: GetScoreProps) {
           <Grid item>
             <Card>
               <CardContent>
-                <Typography>AAAAAA</Typography>
+                <Typography>Origin work: {score.origin.title}</Typography>
+                <Typography>Difficulty: {score.difficulty}/5</Typography>
+                <Typography>Instruments: {score.instruments}</Typography>
               </CardContent>
             </Card>
           </Grid>
           <Grid item>
-            <div className={classes.youtubeWrapper}>
-              <iframe
-                className={classes.youtubeEmbed}
-                src={score.youtubeUrl}
-                title="YouTube video player"
-                frameBorder="0"
-                width="100%"
-                height="100%"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+            <YoutubePlayer url={score.youtubeUrl} />
           </Grid>
         </Grid>
       </Grid>

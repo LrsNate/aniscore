@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
 
       <p>
-        Go to: <Link href="/scores">the scores</Link>
+        Go to: <Link href="/score">the score</Link>
       </p>
     </div>
   );
