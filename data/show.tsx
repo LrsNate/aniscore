@@ -1,12 +1,15 @@
 export interface Show {
   id: string;
-  title: string;
+  title: { [language: string]: string };
 }
 
 const shows: Show[] = [
   {
     id: "n5iViy27",
-    title: "Liz and the Blue Bird",
+    title: {
+      "en-US": "Liz and the Blue Bird",
+      "ja-JP": "リズと青い鳥",
+    },
   },
 ];
 

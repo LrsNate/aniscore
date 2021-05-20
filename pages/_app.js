@@ -3,10 +3,11 @@ import {
   CssBaseline,
   MuiThemeProvider,
 } from "@material-ui/core";
+import { appWithTranslation } from "next-i18next";
 
 const theme = createMuiTheme({});
 
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
@@ -14,3 +15,5 @@ export default function MyApp({ Component, pageProps }) {
     </MuiThemeProvider>
   );
 }
+
+export default appWithTranslation(MyApp);

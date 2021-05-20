@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import { ReactNode } from "react";
 import Head from "next/head";
 import NavigationBar from "./NavigationBar";
@@ -18,7 +19,9 @@ interface PageLayoutProps {
 
 export default function PageLayout(props: PageLayoutProps) {
   const classes = useStyles();
-  const title = props.title ?? "Aniscore";
+  const { t } = useTranslation();
+  const title = props.title ?? t("appName");
+
   return (
     <>
       <Head>

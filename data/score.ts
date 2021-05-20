@@ -1,10 +1,10 @@
-import { Instrument } from "data/instrument";
+import instruments, { Instrument } from "data/instrument";
 import { getShow, Show } from "data/show";
 
 export interface Score {
   id: string;
   slug: string;
-  title: string;
+  title: { [language: string]: string };
   origin: Show;
   pdfUrl: string;
   youtubeUrl: string;
@@ -15,12 +15,15 @@ export interface Score {
 const scores: Score[] = [
   {
     id: "ecxJB2CY",
-    title: "Mizore and Ririka's oboe étude",
+    title: {
+      "en-US": "Mizore and Ririka's oboe étude",
+      "ja-JP": "みぞれと梨々花のオーボエ練習曲",
+    },
     origin: getShow("n5iViy27"),
     slug: "mizore-ririka-oboe-etude",
     pdfUrl: "/Mizore_Ririka_practice_en.pdf",
     youtubeUrl: "https://www.youtube.com/embed/Z0qGdqCbmNI",
-    instruments: [Instrument.Oboe],
+    instruments: [instruments.oboe],
     difficulty: 2,
   },
 ];
