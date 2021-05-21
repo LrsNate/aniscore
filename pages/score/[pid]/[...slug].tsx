@@ -8,6 +8,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import PageLayout from "components/PageLayout";
+import PdfViewer from "components/PdfViewer";
+import ScrollTop from "components/ScrollTop";
 import YoutubePlayer from "components/YoutubePlayer";
 import { getScore, Score } from "data/score";
 import { GetServerSideProps } from "next";
@@ -24,10 +26,6 @@ const useStyles = makeStyles((theme) => ({
   breadcrumbs: {
     marginLeft: theme.spacing(4),
     marginBottom: theme.spacing(2),
-  },
-  scoreEmbed: {
-    width: "100%",
-    minHeight: 500,
   },
 }));
 
@@ -53,10 +51,10 @@ export default function GetScorePage(props: GetScoreProps) {
         <Typography>{score.title[language]}</Typography>
       </Breadcrumbs>
       <Grid container spacing={2}>
-        <Grid item sm={9}>
-          <embed src={score.pdfUrl} className={classes.scoreEmbed} />
+        <Grid item sm={9} md={8}>
+          <PdfViewer url={score.pdfUrl} />
         </Grid>
-        <Grid container direction="column" item spacing={1} sm={3}>
+        <Grid container direction="column" item spacing={1} sm={3} md={4}>
           <Grid item>
             <Card>
               <CardContent>
@@ -80,6 +78,7 @@ export default function GetScorePage(props: GetScoreProps) {
           </Grid>
         </Grid>
       </Grid>
+      <ScrollTop />
     </PageLayout>
   );
 }

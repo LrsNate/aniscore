@@ -28,7 +28,7 @@ export default function NavigationBar(props: NavigationBarProps) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" id="navigation-bar">
         <Toolbar>
           <IconButton
             edge="start"

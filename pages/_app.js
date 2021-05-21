@@ -4,6 +4,9 @@ import {
   MuiThemeProvider,
 } from "@material-ui/core";
 import { appWithTranslation } from "next-i18next";
+import { pdfjs } from "react-pdf";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const theme = createMuiTheme({});
 
