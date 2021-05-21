@@ -6,6 +6,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import LanguageSelector from "components/NavigationBar/LanguageSelector";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +41,7 @@ export default function NavigationBar(props: NavigationBarProps) {
           <Typography variant="h6" className={classes.title}>
             {props.title}
           </Typography>
+          <LanguageSelector />
         </Toolbar>
       </AppBar>
     </div>

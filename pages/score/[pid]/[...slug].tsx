@@ -39,7 +39,6 @@ export default function GetScorePage(props: GetScoreProps) {
     t,
     i18n: { language },
   } = useTranslation("scores");
-  console.log(language);
   if (!score) return "nothing";
   return (
     <PageLayout>

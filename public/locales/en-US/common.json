@@ -1,3 +1,7 @@
 {
-  "appName": "Aniscore"
+  "appName": "Aniscore",
+  "languages": {
+    "en-us": "English",
+    "ja-jp": "Japanese (日本語)"
+  }
 }

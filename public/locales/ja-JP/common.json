@@ -1,3 +1,7 @@
 {
-  "appName": "アニスコア"
+  "appName": "アニスコア",
+  "languages": {
+    "en-us": "英語 (English)",
+    "ja-jp": "日本語"
+  }
 }
