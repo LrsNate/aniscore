@@ -18,11 +18,11 @@ export default function ScrollTop() {
 
   const handleClick = (event) => {
     const anchor = (event.target.ownerDocument || document).querySelector(
-      "#navigation-bar"
+      "body"
     );
 
     if (anchor) {
-      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+      anchor.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
