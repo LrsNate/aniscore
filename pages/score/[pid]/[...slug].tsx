@@ -33,14 +33,13 @@ export default function GetScorePage(props: GetScoreProps) {
   const {
     t,
     i18n: { language },
-  } = useTranslation("scores");
-  const { t: commonStrT } = useTranslation();
+  } = useTranslation();
   if (!score) return "nothing";
   return (
     <PageLayout>
       <Head>
         <title>
-          {score.title[language]} - {commonStrT("appName")}
+          {score.title[language]} - {t("appName")}
         </title>
       </Head>
 

@@ -11,7 +11,7 @@ export default function ScoreAttributes(props: ScoreAttributesProps) {
   const {
     t,
     i18n: { language },
-  } = useTranslation("scores");
+  } = useTranslation();
   const instruments = score.instruments.map((i) => i.name[language]);
   return (
     <Card>

@@ -1,8 +1,13 @@
 {
   "appName": "Aniscore",
   "search": "Search",
+  "scores": "Scores",
   "languages": {
     "en-us": "English",
     "ja-jp": "Japanese (日本語)"
-  }
+  },
+  "download": "Download",
+  "originalWork": "Original work: ",
+  "difficulty": "Difficulty: ",
+  "instruments": "Instruments: "
 }

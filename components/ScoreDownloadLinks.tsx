@@ -8,7 +8,7 @@ interface ScoreDownloadLinks {
 }
 
 export default function ScoreDownloadLinks(props: ScoreDownloadLinks) {
-  const { t } = useTranslation("scores");
+  const { t } = useTranslation();
   return (
     <Card>
       <CardContent>

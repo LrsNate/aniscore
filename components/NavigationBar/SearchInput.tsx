@@ -51,7 +51,9 @@ export default function SearchInput() {
   } = useTranslation();
   const router = useRouter();
   const classes = useStyles();
-  const [searchQuery, setSearchQuery] = useState(router.query.q ?? "");
+  const [searchQuery, setSearchQuery] = useState(
+    (router.query.q as string) ?? ""
+  );
 
   function handleChange(event) {
     setSearchQuery(event.target.value);

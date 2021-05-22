@@ -1,8 +1,13 @@
 {
   "appName": "アニスコア",
   "search": "検索",
+  "scores": "楽譜",
   "languages": {
     "en-us": "英語 (English)",
     "ja-jp": "日本語"
-  }
+  },
+  "download": "ダウンロード",
+  "originalWork": "原作：",
+  "difficulty": "難易：",
+  "instruments": "楽器："
 }

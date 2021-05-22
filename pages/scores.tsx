@@ -32,7 +32,7 @@ export default function GetScores(props: GetScoresProps) {
   const {
     t,
     i18n: { language },
-  } = useTranslation("scores");
+  } = useTranslation();
   const classes = useStyles();
 
   function makeUrl(score: Score) {
