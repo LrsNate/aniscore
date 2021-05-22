@@ -1,7 +1,5 @@
 import {
   Breadcrumbs,
-  Card,
-  CardContent,
   Grid,
   Link,
   makeStyles,
@@ -9,7 +7,7 @@ import {
 } from "@material-ui/core";
 import PageLayout from "components/PageLayout";
 import PdfViewer from "components/PdfViewer";
-import ScrollTop from "components/ScrollTop";
+import ScoreAttributes from "components/ScoreAttributes";
 import YoutubePlayer from "components/YoutubePlayer";
 import { getScore, Score } from "data/score";
 import { GetServerSideProps } from "next";
@@ -56,29 +54,13 @@ export default function GetScorePage(props: GetScoreProps) {
         </Grid>
         <Grid container direction="column" item spacing={1} sm={3} md={4}>
           <Grid item>
-            <Card>
-              <CardContent>
-                <Typography>
-                  {t("originalAnime")}
-                  {score.origin.title[language]}
-                </Typography>
-                <Typography>
-                  {t("difficulty")}
-                  {score.difficulty}/5
-                </Typography>
-                <Typography>
-                  {t("instruments")}
-                  {score.instruments.map((i) => i.name[language])}
-                </Typography>
-              </CardContent>
-            </Card>
+            <ScoreAttributes score={score} />
           </Grid>
           <Grid item>
             <YoutubePlayer url={score.youtubeUrl} />
           </Grid>
         </Grid>
       </Grid>
-      <ScrollTop />
     </PageLayout>
   );
 }

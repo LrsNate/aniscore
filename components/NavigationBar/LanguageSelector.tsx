@@ -1,4 +1,4 @@
-import { Button, IconButton, Menu, MenuItem } from "@material-ui/core";
+import { Button, Menu, MenuItem } from "@material-ui/core";
 import { Language as LanguageIcon } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
@@ -19,7 +19,6 @@ export default function LanguageSelector() {
   };
 
   const setLanguage = (lang) => {
-    console.log(router);
     router.push(router.asPath, "", { locale: lang });
   };
 

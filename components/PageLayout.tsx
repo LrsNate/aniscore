@@ -1,3 +1,4 @@
+import ScrollTop from "components/ScrollTop";
 import { useTranslation } from "next-i18next";
 import { ReactNode } from "react";
 import Head from "next/head";
@@ -29,6 +30,7 @@ export default function PageLayout(props: PageLayoutProps) {
       </Head>
       <NavigationBar title={title} />
       <div className={classes.pageContent}>{props.children}</div>
+      <ScrollTop />
     </>
   );
 }
