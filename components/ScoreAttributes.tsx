@@ -12,12 +12,12 @@ export default function ScoreAttributes(props: ScoreAttributesProps) {
     t,
     i18n: { language },
   } = useTranslation("scores");
-
+  const instruments = score.instruments.map((i) => i.name[language]);
   return (
     <Card>
       <CardContent>
         <Typography>
-          {t("originalAnime")}
+          {t("originalWork")}
           {score.origin.title[language]}
         </Typography>
         <Typography>
@@ -26,7 +26,7 @@ export default function ScoreAttributes(props: ScoreAttributesProps) {
         </Typography>
         <Typography>
           {t("instruments")}
-          {score.instruments.map((i) => i.name[language])}
+          {instruments.join(", ")}
         </Typography>
       </CardContent>
     </Card>

@@ -21,10 +21,9 @@ export default function PdfViewer(props: PdfViewerProps) {
         >
           <Grid container spacing={1}>
             {Array.from(new Array(numPages), (el, index) => (
-              <Grid item>
+              <Grid item key={`page_${index + 1}`}>
                 <Paper>
                   <Page
-                    key={`page_${index + 1}`}
                     pageNumber={index + 1}
                     width={size.width ? size.width : 1}
                   />

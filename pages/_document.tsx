@@ -5,7 +5,7 @@ import { ServerStyleSheets } from "@material-ui/core/styles";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html>
         <Head>
           <link
             rel="stylesheet"
@@ -15,6 +15,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
           />
+          <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
           <Main />

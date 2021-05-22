@@ -1,6 +1,8 @@
 {
   "scores": "Scores",
-  "originalAnime": "Original anime: ",
+  "search": "Search",
+  "download": "Download",
+  "originalWork": "Original work: ",
   "difficulty": "Difficulty: ",
   "instruments": "Instruments: "
 }

@@ -11,6 +11,13 @@ const shows: Show[] = [
       "ja-JP": "リズと青い鳥",
     },
   },
+  {
+    id: "U0vd12D6",
+    title: {
+      "en-US": "Pokémon",
+      "ja-JP": "ポケットーモンスター",
+    },
+  },
 ];
 
 export function getShow(id: string) {
