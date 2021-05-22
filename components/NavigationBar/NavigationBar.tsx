@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import LanguageSelector from "components/NavigationBar/LanguageSelector";
+import SearchInput from "components/NavigationBar/SearchInput";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
+  spacer: {
     flexGrow: 1,
   },
 }));
@@ -38,9 +39,9 @@ export default function NavigationBar(props: NavigationBarProps) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            {props.title}
-          </Typography>
+          <Typography variant="h6">{props.title}</Typography>
+          <SearchInput />
+          <div className={classes.spacer} />
           <LanguageSelector />
         </Toolbar>
       </AppBar>
