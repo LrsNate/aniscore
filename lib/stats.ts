@@ -7,7 +7,7 @@ export default class StatsRecorder {
     const connectionString = process.env.DATABASE_URL;
     this.pool = new Pool({
       connectionString,
-      ssl: { rejectUnauthorized: process.env.NODE_ENV !== "development" },
+      ssl: { rejectUnauthorized: false },
     });
   }
 
