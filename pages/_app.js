@@ -17,7 +17,8 @@ function MyApp({ Component, pageProps }) {
     TagManager.initialize({
       gtmId: "GTM-NSXSSPS",
     });
-  });
+    console.log("Initialised tag manager");
+  }, []);
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
