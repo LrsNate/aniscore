@@ -14,7 +14,7 @@ const theme = createMuiTheme({});
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    ReactGA.initialize("G-G3JDX8EYZ0");
+    ReactGA.initialize("UA-197723824-1");
     console.log("Initialised tag manager");
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
