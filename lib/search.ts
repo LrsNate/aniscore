@@ -9,7 +9,15 @@ export default function searchScores(
   scores: Score[]
 ): Score[] {
   let filteredScores = scores;
-  for (const word of query.q.split(/\s/)) {
+  if (!!query.q) {
+    filteredScores = filterOnTextQuery(filteredScores, query.q);
+  }
+  return filteredScores;
+}
+
+function filterOnTextQuery(scores: Score[], q: string): Score[] {
+  let filteredScores = scores;
+  for (const word of q.split(/\s/)) {
     filteredScores = filteredScores.filter((s) =>
       matchesWord(s, word.toLowerCase())
     );
