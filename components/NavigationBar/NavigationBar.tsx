@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Hidden,
   IconButton,
   makeStyles,
   Toolbar,
@@ -39,7 +40,9 @@ export default function NavigationBar(props: NavigationBarProps) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6">{props.title}</Typography>
+          <Hidden xsDown>
+            <Typography variant="h6">{props.title}</Typography>
+          </Hidden>
           <SearchInput />
           <div className={classes.spacer} />
           <LanguageSelector />
