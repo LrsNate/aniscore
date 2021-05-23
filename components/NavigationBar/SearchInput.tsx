@@ -2,7 +2,7 @@ import { fade, InputBase, makeStyles } from "@material-ui/core";
 import { Search as SearchIcon } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -61,7 +61,6 @@ export default function SearchInput() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(searchQuery);
     const query = encodeURIComponent(searchQuery);
     router.push(`/${language.toLowerCase()}/scores?q=${query}`);
   }

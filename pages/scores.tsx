@@ -1,7 +1,5 @@
 import {
   Breadcrumbs,
-  Card,
-  CardContent,
   Link,
   List,
   ListItem,
@@ -12,6 +10,7 @@ import {
 } from "@material-ui/core";
 import PageLayout from "components/PageLayout";
 import { getScores, Score } from "data/score";
+import searchScores from "lib/search";
 import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -65,11 +64,8 @@ export default function GetScores(props: GetScoresProps) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { locale } = context;
-  console.log(context.query);
-  const scores = getScores();
-  for (const score of scores) {
-    console.log(Object.values(score));
-  }
+  const allScores = getScores();
+  const scores = searchScores(context.query, allScores);
   return {
     props: {
       scores,
