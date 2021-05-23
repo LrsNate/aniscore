@@ -3,6 +3,7 @@ import { getShow, Show } from "data/show";
 
 export interface Score {
   id: string;
+  datePublished: string;
   slug: string;
   title: { [language: string]: string };
   origin: Show;
@@ -15,6 +16,7 @@ export interface Score {
 const scores: Score[] = [
   {
     id: "ecxJB2CY",
+    datePublished: "2021-05-14",
     title: {
       "en-US": "Mizore and Ririka's oboe étude",
       "ja-JP": "みぞれと梨々花のオーボエ練習曲",
@@ -28,6 +30,7 @@ const scores: Score[] = [
   },
   {
     id: "wls5B0Vy",
+    datePublished: "2021-05-21",
     title: {
       "en-US": "Pokémon Gen 1 (Red/Blue) title theme",
       "ja-JP": "ポケットモンスター第一世代（赤緑）メインテーマ",
@@ -42,6 +45,20 @@ const scores: Score[] = [
       instruments.bariSax,
     ],
     difficulty: 3,
+  },
+  {
+    id: "U78h2CCs",
+    datePublished: "2021-02-08",
+    title: {
+      "en-US": "The Place Where We Found Love",
+      "ja-JP": "愛を見つけた場所",
+    },
+    origin: getShow("jxroO07P"),
+    slug: "ai-wo-mitsuketa-basho",
+    pdfUrl: "/Ai_wo_Mitsuketa_Basho.pdf",
+    youtubeUrl: "",
+    instruments: [instruments.bbTrumpet, instruments.euphonium],
+    difficulty: 2,
   },
 ];
 

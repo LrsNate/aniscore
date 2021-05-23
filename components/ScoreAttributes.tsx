@@ -1,5 +1,6 @@
 import { Card, CardContent, Typography } from "@material-ui/core";
 import { Score } from "data/score";
+import moment from "moment";
 import { useTranslation } from "next-i18next";
 
 interface ScoreAttributesProps {
@@ -23,6 +24,10 @@ export default function ScoreAttributes(props: ScoreAttributesProps) {
         <Typography>
           {t("difficulty")}
           {score.difficulty}/5
+        </Typography>
+        <Typography>
+          {t("datePublished")}
+          {moment(score.datePublished).format(t("dateFormat"))}
         </Typography>
         <Typography>
           {t("instruments")}

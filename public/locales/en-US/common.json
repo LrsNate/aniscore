@@ -7,6 +7,8 @@
     "ja-jp": "Japanese (日本語)"
   },
   "download": "Download",
+  "dateFormat": "MMMM Do, YYYY",
+  "datePublished": "Published on: ",
   "originalWork": "Original work: ",
   "difficulty": "Difficulty: ",
   "instruments": "Instruments: "

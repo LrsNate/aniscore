@@ -18,6 +18,13 @@ const shows: Show[] = [
       "ja-JP": "ポケットーモンスター",
     },
   },
+  {
+    id: "jxroO07P",
+    title: {
+      "en-US": "Sound! Euphonium",
+      "ja-JP": "響け！ユーフォニアム",
+    },
+  },
 ];
 
 export function getShow(id: string) {

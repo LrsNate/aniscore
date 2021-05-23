@@ -27,4 +27,16 @@ export default {
       "ja-JP": "バリトンサクソフォーン",
     },
   },
+  bbTrumpet: {
+    name: {
+      "en-US": "B♭ trumpet",
+      "ja-JP": "B♭トロンペット",
+    },
+  },
+  euphonium: {
+    name: {
+      "en-US": "Euphonium",
+      "ja-JP": "ユーフォニアム",
+    },
+  },
 };
