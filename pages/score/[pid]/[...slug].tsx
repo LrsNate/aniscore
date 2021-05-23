@@ -5,19 +5,23 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import axios from "axios";
 import PageLayout from "components/PageLayout";
 import PdfViewer from "components/PdfViewer";
 import ScoreAttributes from "components/ScoreAttributes";
 import ScoreDownloadLinks from "components/ScoreDownloadLinks";
 import YoutubePlayer from "components/YoutubePlayer";
 import { getScore, Score } from "data/score";
+import StatsRecorder from "lib/stats";
 import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import { useEffect } from "react";
 
 interface GetScoreProps {
   score: Score;
+  scoreViews: number;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -28,13 +32,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function GetScorePage(props: GetScoreProps) {
-  const { score } = props;
+  const { score, scoreViews } = props;
   const classes = useStyles();
   const {
     t,
     i18n: { language },
   } = useTranslation();
-  if (!score) return "nothing";
+
+  useEffect(() => {
+    axios.get(`/api/stats/scores/view/${score.id}`);
+  }, []);
+
   return (
     <PageLayout>
       <Head>
@@ -53,7 +61,7 @@ export default function GetScorePage(props: GetScoreProps) {
         </Grid>
         <Grid container direction="column" item spacing={1} sm={3} md={4}>
           <Grid item>
-            <ScoreDownloadLinks score={score} />
+            <ScoreDownloadLinks score={score} scoreViews={scoreViews} />
           </Grid>
           <Grid item>
             <ScoreAttributes score={score} />
@@ -72,9 +80,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { pid } = context.params;
 
   const score = getScore(pid as string);
+  const statsRecorder = new StatsRecorder();
+  const scoreViews = await statsRecorder.getScoreViews(pid as string);
   return {
     props: {
       score,
+      scoreViews,
       ...(await serverSideTranslations(locale)),
     },
   };

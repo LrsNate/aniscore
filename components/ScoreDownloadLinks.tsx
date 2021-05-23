@@ -5,6 +5,7 @@ import { useTranslation } from "next-i18next";
 
 interface ScoreDownloadLinks {
   score: Score;
+  scoreViews: number;
 }
 
 export default function ScoreDownloadLinks(props: ScoreDownloadLinks) {
@@ -23,6 +24,10 @@ export default function ScoreDownloadLinks(props: ScoreDownloadLinks) {
             >
               {t("download")}
             </Button>
+          </Grid>
+          <Grid item>
+            {props.scoreViews}
+            {t("views")}
           </Grid>
         </Grid>
       </CardContent>
