@@ -44,7 +44,7 @@ export default function GetScorePage(props: GetScoreProps) {
       </Head>
 
       <Breadcrumbs className={classes.breadcrumbs}>
-        <Link href={`/${language}/scores`}>{t("scores")}</Link>
+        <Link href={`/${language.toLowerCase()}/scores`}>{t("scores")}</Link>
         <Typography>{score.title[language]}</Typography>
       </Breadcrumbs>
       <Grid container spacing={2}>

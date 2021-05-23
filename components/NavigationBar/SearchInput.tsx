@@ -63,7 +63,7 @@ export default function SearchInput() {
     event.preventDefault();
     console.log(searchQuery);
     const query = encodeURIComponent(searchQuery);
-    router.push(`/${language}/scores?q=${query}`);
+    router.push(`/${language.toLowerCase()}/scores?q=${query}`);
   }
 
   return (

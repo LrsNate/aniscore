@@ -42,7 +42,7 @@ export default function GetScores(props: GetScoresProps) {
   return (
     <PageLayout>
       <Breadcrumbs className={classes.breadcrumbs}>
-        <Link href={`/${language}/scores`}>{t("scores")}</Link>
+        <Link href={`/${language.toLowerCase()}/scores`}>{t("scores")}</Link>
         <Typography>{t("search")}</Typography>
       </Breadcrumbs>
       <Paper>
@@ -65,8 +65,11 @@ export default function GetScores(props: GetScoresProps) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { locale } = context;
-
+  console.log(context.query);
   const scores = getScores();
+  for (const score of scores) {
+    console.log(Object.values(score));
+  }
   return {
     props: {
       scores,
