@@ -56,7 +56,7 @@ const scores: Score[] = [
     origin: getShow("jxroO07P"),
     slug: "ai-wo-mitsuketa-basho",
     pdfUrl: "/Ai_wo_Mitsuketa_Basho.pdf",
-    youtubeUrl: "",
+    youtubeUrl: "https://www.youtube.com/embed/ykWKVjGE7Qw",
     instruments: [instruments.bbTrumpet, instruments.euphonium],
     difficulty: 2,
   },
