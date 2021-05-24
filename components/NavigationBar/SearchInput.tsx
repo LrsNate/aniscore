@@ -61,8 +61,11 @@ export default function SearchInput() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const query = encodeURIComponent(searchQuery);
-    router.push(`/${language.toLowerCase()}/scores?q=${query}`);
+    const q = encodeURIComponent(searchQuery);
+    router.push({
+      pathname: `/${language.toLowerCase()}/scores`,
+      query: { ...router.query, q },
+    });
   }
 
   return (

@@ -1,14 +1,14 @@
 import {
   Breadcrumbs,
+  Grid,
   Link,
-  List,
-  ListItem,
-  ListItemText,
   makeStyles,
-  Paper,
   Typography,
 } from "@material-ui/core";
 import PageLayout from "components/PageLayout";
+import ScoreFilters from "components/ScoreFilters";
+import ScoreList from "components/ScoreList";
+import { getInstruments, Instrument } from "data/instrument";
 import { getScores, Score } from "data/score";
 import searchScores from "lib/search";
 import { GetServerSideProps } from "next";
@@ -23,20 +23,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface GetScoresProps {
+  instruments: Instrument[];
   scores: Score[];
 }
 
 export default function GetScores(props: GetScoresProps) {
-  const { scores } = props;
+  const { instruments, scores } = props;
   const {
     t,
     i18n: { language },
   } = useTranslation();
   const classes = useStyles();
-
-  function makeUrl(score: Score) {
-    return `/${language.toLowerCase()}/score/${score.id}/${score.slug}`;
-  }
 
   return (
     <PageLayout>
@@ -44,30 +41,26 @@ export default function GetScores(props: GetScoresProps) {
         <Link href={`/${language.toLowerCase()}/scores`}>{t("scores")}</Link>
         <Typography>{t("search")}</Typography>
       </Breadcrumbs>
-      <Paper>
-        <List>
-          {scores.map((score) => (
-            <ListItem button key={score.id} component="a" href={makeUrl(score)}>
-              <ListItemText
-                primary={score.title[language]}
-                secondary={`${
-                  t("originalWork") + score.origin.title[language]
-                }`}
-              />
-            </ListItem>
-          ))}
-        </List>
-      </Paper>
+      <Grid container spacing={2}>
+        <Grid item md={3}>
+          <ScoreFilters instruments={instruments} />
+        </Grid>
+        <Grid item md={9}>
+          <ScoreList scores={scores} />
+        </Grid>
+      </Grid>
     </PageLayout>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { locale } = context;
+  const instruments = getInstruments();
   const allScores = getScores();
   const scores = searchScores(context.query, allScores);
   return {
     props: {
+      instruments,
       scores,
       ...(await serverSideTranslations(locale)),
     },
