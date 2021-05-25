@@ -14,7 +14,6 @@ import { Instrument } from "data/instrument";
 import _ from "lodash";
 import { useTranslation } from "next-i18next";
 import { NextRouter, useRouter } from "next/router";
-import { useState } from "react";
 
 interface InstrumentsSelectorProps {
   instruments: Instrument[];
@@ -50,6 +49,7 @@ function updateInstruments(router: NextRouter, instruments: Instrument[]) {
 export default function InstrumentsSelector(props: InstrumentsSelectorProps) {
   const classes = useStyles();
   const {
+    t,
     i18n: { language },
   } = useTranslation();
   const router = useRouter();
@@ -79,13 +79,13 @@ export default function InstrumentsSelector(props: InstrumentsSelectorProps) {
 
   return (
     <>
-      <Typography>Instruments</Typography>
+      <Typography>{t("instruments")}</Typography>
       <TextField
         className={classes.instrumentInput}
         value=""
         onChange={addInstrument}
         select
-        label="Filter by instrument"
+        label={t("searchByInstruments")}
       >
         {props.instruments.map((i) => (
           <MenuItem key={i.id} value={i.id}>

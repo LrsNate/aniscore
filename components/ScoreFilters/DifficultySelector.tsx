@@ -1,5 +1,6 @@
 import { Slider, Typography } from "@material-ui/core";
 import _ from "lodash";
+import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 const marks = _.range(1, 6).map((n) => ({ value: n, label: n.toString() }));
@@ -14,6 +15,7 @@ function parseDifficultyRange(query) {
 
 export default function DifficultySelector() {
   const router = useRouter();
+  const { t } = useTranslation();
   const diffRange = parseDifficultyRange(router.query);
 
   function handleChange(event, newValue) {
@@ -29,7 +31,7 @@ export default function DifficultySelector() {
 
   return (
     <>
-      <Typography>Difficulty</Typography>
+      <Typography>{t("difficulty")}</Typography>
       <Slider
         value={diffRange}
         onChange={handleChange}
