@@ -10,7 +10,7 @@ import ScoreFilters from "components/ScoreFilters";
 import ScoreList from "components/ScoreList";
 import { getInstruments, Instrument } from "data/instrument";
 import { getScores, Score } from "data/score";
-import searchScores from "lib/search";
+import searchScores, { SearchQuery } from "lib/search";
 import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -57,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { locale } = context;
   const instruments = getInstruments();
   const allScores = getScores();
-  const scores = searchScores(context.query, allScores);
+  const scores = searchScores(new SearchQuery(context.query), allScores);
   return {
     props: {
       instruments,

@@ -40,7 +40,7 @@ const instruments: { [key: string]: Instrument } = {
     },
   },
   euphonium: {
-    id: "euph",
+    id: "euphonium",
     name: {
       "en-US": "Euphonium",
       "ja-JP": "ユーフォニアム",
