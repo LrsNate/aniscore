@@ -2,7 +2,6 @@ import {
   IconButton,
   List,
   ListItem,
-  ListItemIcon,
   ListItemSecondaryAction,
   ListItemText,
   makeStyles,
@@ -14,6 +13,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { Instrument } from "data/instrument";
 import _ from "lodash";
 import { useTranslation } from "next-i18next";
+import { NextRouter, useRouter } from "next/router";
 import { useState } from "react";
 
 interface InstrumentsSelectorProps {
@@ -26,27 +26,54 @@ const useStyles = makeStyles({
   },
 });
 
+function parseQuery(query: string, instruments: Instrument[]) {
+  const ids = query.split(",");
+  const result = [];
+  for (const id of ids) {
+    const instrument = instruments.find((i) => i.id === id);
+    if (instrument) {
+      result.push(instrument);
+    }
+  }
+  return result;
+}
+
+function updateInstruments(router: NextRouter, instruments: Instrument[]) {
+  router.push({
+    query: {
+      ...router.query,
+      instr: instruments.map((i) => i.id).join(","),
+    },
+  });
+}
+
 export default function InstrumentsSelector(props: InstrumentsSelectorProps) {
   const classes = useStyles();
   const {
     i18n: { language },
   } = useTranslation();
-  const [instrumentDraft, setInstrumentDraft] = useState("");
-  const [instruments, setInstruments] = useState([]);
+  const router = useRouter();
+  const instruments = router.query.instr
+    ? parseQuery(router.query.instr as string, props.instruments)
+    : [];
 
   function addInstrument(event) {
     const instrument = props.instruments.find(
       (i) => i.id === event.target.value
     );
-    setInstrumentDraft(instrument.id);
     if (!_.find(instruments, (i) => i.id === instrument.id)) {
-      setInstruments(instruments.concat([instrument]));
+      const updatedInstruments = instruments.concat([instrument]);
+      updateInstruments(router, updatedInstruments);
     }
   }
 
   function removeInstrument(instrument) {
     return () => {
-      setInstruments(_.filter(instruments, (i) => i.id !== instrument.id));
+      const updatedInstruments = _.filter(
+        instruments,
+        (i) => i.id !== instrument.id
+      );
+      updateInstruments(router, updatedInstruments);
     };
   }
 
@@ -55,7 +82,7 @@ export default function InstrumentsSelector(props: InstrumentsSelectorProps) {
       <Typography>Instruments</Typography>
       <TextField
         className={classes.instrumentInput}
-        value={instrumentDraft}
+        value=""
         onChange={addInstrument}
         select
         label="Filter by instrument"
