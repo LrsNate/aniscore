@@ -42,10 +42,10 @@ export default function GetScores(props: GetScoresProps) {
         <Typography>{t("search")}</Typography>
       </Breadcrumbs>
       <Grid container spacing={2}>
-        <Grid item md={3}>
+        <Grid item sm={3} xs={12}>
           <ScoreFilters instruments={instruments} />
         </Grid>
-        <Grid item md={9}>
+        <Grid item sm={9} xs={12}>
           <ScoreList scores={scores} />
         </Grid>
       </Grid>
