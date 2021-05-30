@@ -25,6 +25,13 @@ const shows: Show[] = [
       "ja-JP": "響け！ユーフォニアム",
     },
   },
+  {
+    id: "x4nVtHQN",
+    title: {
+      "en-US": "Violet Evergarden",
+      "ja-JP": "ヴァイオレット・エヴァーガーデン",
+    },
+  },
 ];
 
 export function getShow(id: string) {
