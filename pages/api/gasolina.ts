@@ -22,6 +22,10 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
   } catch (e) {
     return res.status(401).end("invalid request signature");
   }
-
-  res.status(200).json({ type: 1 });
+  if (body.type === 1) {
+    return res.status(200).json({ type: 1 });
+  }
+  return res
+    .status(200)
+    .json({ type: 4, data: { content: "Lo siento, no estoy listo todavía " } });
 };
