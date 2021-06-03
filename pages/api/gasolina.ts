@@ -12,12 +12,14 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    console.log(body.data.options);
+    if (!body.data.options) {
+      return res.status(200).json(reply("¿Que qué?"));
+    }
     const query = body.data.options[0].value;
     if (!query) {
       return res.status(200).json(reply("¿Que qué?"));
     }
-    return res.status(200).json(`Recibí: ${query}`);
+    return res.status(200).json(reply(`Recibí: ${query}`));
   } catch (e) {
     return res.status(200).json(reply("Lo siento, no entendí eso"));
   }
