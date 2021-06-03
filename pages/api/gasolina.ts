@@ -11,6 +11,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(200).json({ type: 1 });
   }
 
+  console.log(body);
   try {
     const query = body.data.options[0].value;
     if (!query) {
