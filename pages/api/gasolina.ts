@@ -11,8 +11,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(200).json({ type: 1 });
   }
 
-  console.log(body);
   try {
+    console.log(body.data.options);
     const query = body.data.options[0].value;
     if (!query) {
       return res.status(200).json(reply("¿Que qué?"));
