@@ -100,7 +100,7 @@ const scores: Score[] = [
     pdfUrl: "/to_the_beginning.pdf",
     youtubeUrl: "https://www.youtube.com/embed/PM70qDp60iM",
     instruments: [instruments.sopranoSax],
-    difficulty: 2,
+    difficulty: 3,
   },
 ];
 
