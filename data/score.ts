@@ -88,6 +88,20 @@ const scores: Score[] = [
     instruments: [instruments.altoSax],
     difficulty: 2,
   },
+  {
+    id: "DMDIgQR",
+    origin: getShow("UqjZTED"),
+    datePublished: "2021-06-23",
+    title: {
+      "en-US": "to the beginning",
+      "ja-JP": "to the beginning",
+    },
+    slug: "to-the-beginning",
+    pdfUrl: "/to_the_beginning.pdf",
+    youtubeUrl: "https://www.youtube.com/embed/PM70qDp60iM",
+    instruments: [instruments.sopranoSax],
+    difficulty: 2,
+  },
 ];
 
 export function getScores(): Score[] {

@@ -32,6 +32,13 @@ const shows: Show[] = [
       "ja-JP": "ヴァイオレット・エヴァーガーデン",
     },
   },
+  {
+    id: "UqjZTED",
+    title: {
+      "en-US": "Fate/Zero",
+      "ja-JP": "Fate/Zero",
+    },
+  },
 ];
 
 export function getShow(id: string) {
