@@ -7,6 +7,7 @@ import toTheBeginning from "data/score/scores/toTheBeginning";
 import { Score } from "data/score/types";
 
 export type { Score } from "data/score/types";
+export type { Part } from "data/score/types";
 
 const scores: Score[] = [
   mizoreRirikaPractice,

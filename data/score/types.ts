@@ -7,8 +7,14 @@ export interface Score {
   slug: string;
   title: { [language: string]: string };
   origin: Show;
-  pdfUrl: string;
   youtubeUrl: string;
-  instruments: Instrument[];
+  parts: Part[];
   difficulty: number;
+}
+
+export interface Part {
+  id: string;
+  name: { [language: string]: string };
+  pdfUrl: string;
+  instruments: Instrument[];
 }

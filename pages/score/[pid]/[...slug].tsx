@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GetScorePage(props: GetScoreProps) {
   const { score, scoreViews } = props;
+  const part = score.parts[0];
   const classes = useStyles();
   const {
     t,
@@ -57,14 +58,14 @@ export default function GetScorePage(props: GetScoreProps) {
       </Breadcrumbs>
       <Grid container spacing={2}>
         <Grid item sm={9} md={8}>
-          <PdfViewer url={score.pdfUrl} />
+          <PdfViewer url={part.pdfUrl} />
         </Grid>
         <Grid container direction="column" item spacing={1} sm={3} md={4}>
           <Grid item>
-            <ScoreDownloadLinks score={score} scoreViews={scoreViews} />
+            <ScoreDownloadLinks part={part} scoreViews={scoreViews} />
           </Grid>
           <Grid item>
-            <ScoreAttributes score={score} />
+            <ScoreAttributes score={score} part={part} />
           </Grid>
           <Grid item>
             <YoutubePlayer url={score.youtubeUrl} />

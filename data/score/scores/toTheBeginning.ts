@@ -11,9 +11,15 @@ const toTheBeginning: Score = {
     "ja-JP": "to the beginning",
   },
   slug: "to-the-beginning",
-  pdfUrl: "/to_the_beginning.pdf",
+  parts: [
+    {
+      id: "sopranoSax",
+      name: { "en-US": "Soprano Sax", "ja-JP": "ソプラノサックス" },
+      pdfUrl: "/to_the_beginning.pdf",
+      instruments: [instruments.sopranoSax],
+    },
+  ],
   youtubeUrl: "https://www.youtube.com/embed/PM70qDp60iM",
-  instruments: [instruments.sopranoSax],
   difficulty: 3,
 };
 

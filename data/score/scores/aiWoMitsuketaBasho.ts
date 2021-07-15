@@ -11,9 +11,18 @@ const aiWoMitsuketaBasho: Score = {
   },
   origin: getShow("jxroO07P"),
   slug: "ai-wo-mitsuketa-basho",
-  pdfUrl: "/Ai_wo_Mitsuketa_Basho.pdf",
+  parts: [
+    {
+      id: "trpEuph",
+      name: {
+        "en-US": "Trumpet & Euphonium",
+        "ja-JP": "トロンペットとユーフォニアム",
+      },
+      pdfUrl: "/Ai_wo_Mitsuketa_Basho.pdf",
+      instruments: [instruments.bbTrumpet, instruments.euphonium],
+    },
+  ],
   youtubeUrl: "https://www.youtube.com/embed/ykWKVjGE7Qw",
-  instruments: [instruments.bbTrumpet, instruments.euphonium],
   difficulty: 2,
 };
 

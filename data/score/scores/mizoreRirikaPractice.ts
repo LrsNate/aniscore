@@ -11,9 +11,18 @@ const mizoreRirikaPractice: Score = {
   },
   origin: getShow("n5iViy27"),
   slug: "mizore-ririka-oboe-etude",
-  pdfUrl: "/Mizore_Ririka_practice_en.pdf",
+  parts: [
+    {
+      id: "oboes",
+      name: {
+        "en-US": "Oboes",
+        "ja-JP": "オーボエ",
+      },
+      pdfUrl: "/Mizore_Ririka_practice_en.pdf",
+      instruments: [instruments.oboe],
+    },
+  ],
   youtubeUrl: "https://www.youtube.com/embed/Z0qGdqCbmNI",
-  instruments: [instruments.oboe],
   difficulty: 2,
 };
 

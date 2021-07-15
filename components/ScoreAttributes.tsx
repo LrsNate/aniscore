@@ -1,19 +1,20 @@
 import { Card, CardContent, Typography } from "@material-ui/core";
-import { Score } from "data/score";
+import { Part, Score } from "data/score";
 import moment from "moment";
 import { useTranslation } from "next-i18next";
 
 interface ScoreAttributesProps {
   score: Score;
+  part: Part;
 }
 
 export default function ScoreAttributes(props: ScoreAttributesProps) {
-  const { score } = props;
+  const { score, part } = props;
   const {
     t,
     i18n: { language },
   } = useTranslation();
-  const instruments = score.instruments.map((i) => i.name[language]);
+  const instruments = part.instruments.map((i) => i.name[language]);
   return (
     <Card>
       <CardContent>

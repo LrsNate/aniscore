@@ -11,9 +11,15 @@ const soundEuphonium: Score = {
   },
   origin: getShow("jxroO07P"),
   slug: "hibike-euphonium",
-  pdfUrl: "/Hibike_Euphonium.pdf",
+  parts: [
+    {
+      id: "euph",
+      name: { "en-US": "Euphonium", "ja-JP": "ユーフォニアム" },
+      pdfUrl: "/Hibike_Euphonium.pdf",
+      instruments: [instruments.euphonium],
+    },
+  ],
   youtubeUrl: "https://www.youtube.com/embed/qPCRQisHpTQ",
-  instruments: [instruments.euphonium],
   difficulty: 3,
 };
 

@@ -11,9 +11,19 @@ const sincerely: Score = {
     "ja-JP": "Sincerely",
   },
   slug: "sincerely",
-  pdfUrl: "/Sincerely.pdf",
+  parts: [
+    {
+      id: "altoSax",
+      name: {
+        "en-US": "Alto Sax",
+        "ja-JP": "アルトサックス",
+      },
+      pdfUrl: "/Sincerely.pdf",
+      instruments: [instruments.altoSax],
+    },
+  ],
   youtubeUrl: "https://www.youtube.com/embed/BGn6WOw6BtA",
-  instruments: [instruments.altoSax],
+
   difficulty: 2,
 };
 
