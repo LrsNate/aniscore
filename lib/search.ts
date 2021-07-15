@@ -72,7 +72,7 @@ function filterOnInstruments(scores: Score[], query: SearchQuery): Score[] {
   let filteredScores = scores;
   for (const instrument of query.instruments) {
     filteredScores = filteredScores.filter((s) =>
-      s.instruments.find((i) => i.id === instrument.id)
+      s.parts.find((p) => p.instruments.find((i) => i.id === instrument.id))
     );
   }
   return filteredScores;
