@@ -11,7 +11,8 @@ import PdfViewer from "components/PdfViewer";
 import ScoreAttributes from "components/ScoreAttributes";
 import ScoreDownloadLinks from "components/ScoreDownloadLinks";
 import YoutubePlayer from "components/YoutubePlayer";
-import { getScore, Score } from "data/score";
+import { getScore, Part, Score } from "data/score";
+import { getPart } from "lib/scores";
 import StatsRecorder from "lib/stats";
 import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
@@ -21,6 +22,7 @@ import { useEffect } from "react";
 
 interface GetScoreProps {
   score: Score;
+  part: Part;
   scoreViews: number;
 }
 
@@ -32,8 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function GetScorePage(props: GetScoreProps) {
-  const { score, scoreViews } = props;
-  const part = score.parts[0];
+  const { score, part, scoreViews } = props;
   const classes = useStyles();
   const {
     t,
@@ -79,13 +80,16 @@ export default function GetScorePage(props: GetScoreProps) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { locale } = context;
   const { pid } = context.params;
+  const { part: partId } = context.query;
 
   const score = getScore(pid as string);
+  const part = getPart(score, partId as string);
   const statsRecorder = new StatsRecorder();
   const scoreViews = await statsRecorder.getScoreViews(pid as string);
   return {
     props: {
       score,
+      part,
       scoreViews,
       ...(await serverSideTranslations(locale)),
     },

@@ -11,6 +11,13 @@ const instruments: { [key: string]: Instrument } = {
       "ja-JP": "オーボエ",
     },
   },
+  clarinet: {
+    id: "clarinet",
+    name: {
+      "en-US": "Clarinet",
+      "ja-JP": "クラリネット",
+    },
+  },
   sopranoSax: {
     id: "sopranoSax",
     name: {

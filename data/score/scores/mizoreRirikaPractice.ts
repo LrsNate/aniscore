@@ -13,13 +13,22 @@ const mizoreRirikaPractice: Score = {
   slug: "mizore-ririka-oboe-etude",
   parts: [
     {
-      id: "oboes",
+      id: "oboe",
       name: {
         "en-US": "Oboes",
         "ja-JP": "オーボエ",
       },
-      pdfUrl: "/Mizore_Ririka_practice_en.pdf",
+      pdfUrl: "/Mizore_Ririka_practice_oboe.pdf",
       instruments: [instruments.oboe],
+    },
+    {
+      id: "clarinet",
+      name: {
+        "en-US": "Clarinets",
+        "ja-JP": "クラリネット",
+      },
+      pdfUrl: "/Mizore_Ririka_practice_clar.pdf",
+      instruments: [instruments.clarinet, instruments.sopranoSax],
     },
   ],
   youtubeUrl: "https://www.youtube.com/embed/Z0qGdqCbmNI",
