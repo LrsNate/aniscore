@@ -21,6 +21,15 @@ const aiWoMitsuketaBasho: Score = {
       pdfUrl: "/Ai_wo_Mitsuketa_Basho.pdf",
       instruments: [instruments.bbTrumpet, instruments.euphonium],
     },
+    {
+      id: "clarinet",
+      name: {
+        "en-US": "Clarinets",
+        "ja-JP": "クラリネット",
+      },
+      pdfUrl: "/Ai_wo_Mitsuketa_Basho_clar.pdf",
+      instruments: [instruments.clarinet, instruments.sopranoSax],
+    },
   ],
   youtubeUrl: "https://www.youtube.com/embed/ykWKVjGE7Qw",
   difficulty: 2,
