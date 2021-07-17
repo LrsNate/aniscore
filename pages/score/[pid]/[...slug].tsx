@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import axios from "axios";
 import PageLayout from "components/PageLayout";
+import PartSelector from "components/PartSelector";
 import PdfViewer from "components/PdfViewer";
 import ScoreAttributes from "components/ScoreAttributes";
 import ScoreDownloadLinks from "components/ScoreDownloadLinks";
@@ -58,8 +59,13 @@ export default function GetScorePage(props: GetScoreProps) {
         <Typography>{score.title[language]}</Typography>
       </Breadcrumbs>
       <Grid container spacing={2}>
-        <Grid item sm={9} md={8}>
-          <PdfViewer url={part.pdfUrl} />
+        <Grid container direction="column" spacing={1} item sm={9} md={8}>
+          <Grid item>
+            <PartSelector score={score} part={part} />
+          </Grid>
+          <Grid item>
+            <PdfViewer url={part.pdfUrl} />
+          </Grid>
         </Grid>
         <Grid container direction="column" item spacing={1} sm={3} md={4}>
           <Grid item>
