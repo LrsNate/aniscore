@@ -1,5 +1,6 @@
 import { Tab, Tabs } from "@material-ui/core";
 import { Part, Score } from "data/score";
+import { partUrl } from "lib/routes";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -18,11 +19,7 @@ export default function PartSelector(props: PartSelectorProps) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    router.push(
-      `/${router.locale.toLowerCase()}/score/${score.id}/${score.slug}?part=${
-        score.parts[newValue].id
-      }`
-    );
+    router.push(partUrl(router, score, part));
   };
 
   if (score.parts.length < 2) {
