@@ -15,8 +15,14 @@ const soundEuphonium: Score = {
     {
       id: "euph",
       name: { "en-US": "Euphonium", "ja-JP": "ユーフォニアム" },
-      pdfUrl: "/Hibike_Euphonium.pdf",
+      pdfUrl: "/Hibike_Euphonium_euph.pdf",
       instruments: [instruments.euphonium],
+    },
+    {
+      id: "tenorSax",
+      name: { "en-US": "Tenor Sax", "ja-JP": "テナーサックス" },
+      pdfUrl: "/Hibike_Euphonium_sax.pdf",
+      instruments: [instruments.tenorSax],
     },
   ],
   youtubeUrl: "https://www.youtube.com/embed/qPCRQisHpTQ",
