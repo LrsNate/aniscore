@@ -13,14 +13,12 @@ import ScoreAttributes from "components/ScoreAttributes";
 import ScoreDownloadLinks from "components/ScoreDownloadLinks";
 import YoutubePlayer from "components/YoutubePlayer";
 import { getScore, Part, Score } from "data/score";
-import { homeUrl } from "lib/routes";
 import { getPart } from "lib/scores";
 import StatsRecorder from "lib/stats";
 import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 interface GetScoreProps {
@@ -38,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GetScorePage(props: GetScoreProps) {
   const { score, part, scoreViews } = props;
-  const router = useRouter();
   const classes = useStyles();
   const {
     t,
@@ -58,7 +55,7 @@ export default function GetScorePage(props: GetScoreProps) {
       </Head>
 
       <Breadcrumbs className={classes.breadcrumbs}>
-        <Link href={homeUrl(router)}>{t("scores")}</Link>
+        <Link href={`/${language.toLowerCase()}/scores`}>{t("scores")}</Link>
         <Typography>{score.title[language]}</Typography>
       </Breadcrumbs>
       <Grid container spacing={2}>

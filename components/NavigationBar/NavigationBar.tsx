@@ -2,7 +2,6 @@ import {
   AppBar,
   Hidden,
   IconButton,
-  Link,
   makeStyles,
   Toolbar,
   Typography,
@@ -10,8 +9,6 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import LanguageSelector from "components/NavigationBar/LanguageSelector";
 import SearchInput from "components/NavigationBar/SearchInput";
-import { homeUrl } from "lib/routes";
-import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,9 +16,6 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-  },
-  title: {
-    cursor: "pointer",
   },
   spacer: {
     flexGrow: 1,
@@ -34,8 +28,6 @@ interface NavigationBarProps {
 
 export default function NavigationBar(props: NavigationBarProps) {
   const classes = useStyles();
-  const router = useRouter();
-
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -49,13 +41,7 @@ export default function NavigationBar(props: NavigationBarProps) {
             <MenuIcon />
           </IconButton>
           <Hidden xsDown>
-            <Typography
-              variant="h6"
-              className={classes.title}
-              onClick={() => router.push(homeUrl(router))}
-            >
-              {props.title}
-            </Typography>
+            <Typography variant="h6">{props.title}</Typography>
           </Hidden>
           <SearchInput />
           <div className={classes.spacer} />
