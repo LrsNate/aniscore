@@ -5,9 +5,11 @@ export default class StatsRecorder {
 
   constructor() {
     const connectionString = process.env.DATABASE_URL;
+    const sslConfig =
+      process.env.ANISCORE_ENV == "dev" ? false : { rejectUnauthorized: false };
     this.pool = new Pool({
       connectionString,
-      ssl: { rejectUnauthorized: false },
+      ssl: sslConfig,
     });
   }
 

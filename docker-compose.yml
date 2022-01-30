@@ -4,5 +4,16 @@ services:
   aniscore:
     build:
       context: .
+    environment:
+      ANISCORE_ENV: "dev"
+      DATABASE_URL: "postgres://postgres:password@postgres:5432"
     ports:
       - "3000:3000"
+  postgres:
+    image: postgres:13.5
+    volumes:
+      - ./data/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
