@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "start-container": "next start",
     "start": "node -r newrelic node_modules/.bin/next start -p $PORT"
   },
   "dependencies": {
