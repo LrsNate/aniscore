@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "17.x"
+    "node": "18.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -29,7 +29,7 @@
     "tweetnacl": "1.0.3"
   },
   "devDependencies": {
-    "@types/node": "16.11.22",
+    "@types/node": "18.18.6",
     "@types/react": "17.0.39",
     "prettier": "2.5.1",
     "typescript": "4.5.5",
