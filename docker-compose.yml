@@ -10,7 +10,7 @@ services:
     ports:
       - "3000:3000"
   postgres:
-    image: postgres:14.1
+    image: postgres:14.13
     volumes:
       - ./data/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
